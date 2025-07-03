@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>PAGINA INICIAL</title>
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@700&display=swap" rel="stylesheet">
+    <style>
+        @font-face {
+            font-family: 'Black Note Regular';
+            src: url('BlackNote-Regular.ttf') format('truetype');
+            font-weight: normal;
+            font-style: normal;
+        }
+        body {
+            margin: 0;
+            padding: 0;
+            background: #0d1521;
+            font-family: 'Quicksand', Arial, sans-serif;
+            color: #f5f6fa;
+        }
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            max-width: 1200px;
+            margin: 110px auto 0 auto;
+            gap: 32px;
+            justify-content: center;
+        }
+        .left-panel {
+            background: #151d2b;
+            border-radius: 14px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.10);
+            padding: 0 0 32px 0;
+            max-width: 600px;
+            min-width: 340px;
+            flex: 2;
+        }
+        .banner-img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+            border-top-left-radius: 14px;
+            border-top-right-radius: 14px;
+        }
+        .left-panel-content {
+            padding: 28px 32px 0 32px;
+        }
+        .left-panel h2 {
+            margin-top: 0;
+            font-size: 2em;
+            font-family: 'Black Note Regular', 'Quicksand', Arial, sans-serif;
+            font-weight: bold;
+            color: #fff;
+        }
+        .left-panel ul {
+            margin-top: 10px;
+            margin-bottom: 0;
+            padding-left: 20px;
+        }
+        .left-panel li {
+            margin-bottom: 6px;
+        }
+        .right-panel {
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+            min-width: 320px;
+            max-width: 400px;
+            flex: 1;
+        }
+        .card {
+            background: #151d2b;
+            border-radius: 14px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.10);
+            padding: 28px 24px;
+            margin-bottom: 0;
+        }
+        .card h3 {
+            margin-top: 0;
+            font-size: 1.4em;
+            font-family: 'Black Note Regular', 'Quicksand', Arial, sans-serif;
+            font-weight: bold;
+            color: #fff;
+        }
+        .card .btn-group {
+            margin-top: 18px;
+            display: flex;
+            gap: 12px;
+        }
+        .btn {
+            background: #1ed760;
+            color: #fff;
+            border: none;
+            border-radius: 7px;
+            font-family: 'Quicksand', Arial, sans-serif;
+            font-weight: bold;
+            font-size: 1em;
+            padding: 8px 22px;
+            cursor: pointer;
+            transition: background 0.2s;
+            text-decoration: none;
+            display: inline-block;
+        }
+        .btn.discord {
+            background: #23272a;
+        }
+        .btn.twitter {
+            background: #111;
+        }
+        .fundador {
+            text-align: center;
+        }
+        .fundador-nome {
+            font-size: 1.2em;
+            font-weight: bold;
+            margin-top: 10px;
+            color: #fff;
+        }
+        .fundador-desc {
+            font-size: 1em;
+            color: #bfc4d1;
+            margin-top: 8px;
+        }
+        .top-bar {
+            width: 100%;
+            height: 70px;
+            background: #0d1521;
+            display: flex;
+            align-items: center;
+            box-shadow: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 10;
+            border: none;
+        }
+        .top-bar-logo {
+            height: 60px;
+            width: 60px;
+            margin-left: 8px;
+            margin-right: 32px;
+            object-fit: cover;
+            border-radius: 8px;
+        }
+        .top-bar-buttons {
+            display: flex;
+            gap: 18px;
+            align-items: center;
+        }
+        .top-bar-btn-text {
+            background: none;
+            color: #f5f6fa;
+            border: none;
+            border-radius: 0;
+            font-family: 'Quicksand', Arial, sans-serif;
+            font-weight: bold;
+            font-size: 1em;
+            padding: 0 8px;
+            cursor: pointer;
+            text-transform: none;
+            letter-spacing: 0.5px;
+            box-shadow: none;
+            transition: color 0.2s;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            height: 38px;
+        }
+        .top-bar-btn-text:hover {
+            color: #1ed760;
+        }
+        .top-bar-btn-text .icon {
+            font-size: 1.1em;
+            display: inline-block;
+            vertical-align: middle;
+        }
+        @media (max-width: 1000px) {
+            .container {
+                flex-direction: column;
+                align-items: center;
+                gap: 24px;
+            }
+            .left-panel, .right-panel {
+                max-width: 98vw;
+                min-width: unset;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="top-bar" style="position: relative;">
+        <img src="logo1.png" alt="Logo" class="top-bar-logo">
+        <div class="top-bar-buttons">
+            
+            <button class="top-bar-btn-text" onclick="window.open('https://www.roblox.com/games/start?placeId=7711635737&launchData=joinCode%3D43aevris', '_blank')">
+                <img src="jogar.png" alt="Jogo" style="height:1.2em;width:1.2em;vertical-align:middle;display:inline-block;margin-right:5px;"> JOGO
+            </button>
+            <button class="top-bar-btn-text" onclick="window.open('https://docs.google.com/document/d/1EMiPsKzvZKS1XTCrR3rKHmNmi1jgGc8nYrSwEEN-CSM/edit?usp=sharing', '_blank')">
+                <img src="regras.png" alt="Regras" style="height:1.2em;width:1.2em;vertical-align:middle;display:inline-block;margin-right:5px;"> REGRAS
+            </button>
+            <button class="top-bar-btn-text" onclick="window.location.href='outros.html'">
+                <img src="noticias.png" alt="Jornais" style="height:1.2em;width:1.2em;vertical-align:middle;display:inline-block;margin-right:5px;"> JORNAIS
+            </button>
+            <button class="top-bar-btn-text" onclick="window.open('https://discord.gg/fwCSgFD4Rm', '_blank')">
+                <img src="martelo.png" alt="Apelar Banimento" style="height:1.2em;width:1.2em;vertical-align:middle;display:inline-block;margin-right:5px;"> APELAR BANIMENTO
+            </button>
+            <button class="top-bar-btn-text" onclick="window.location.href='formulario.html'">
+                <img src="papel.png" alt="Formulário" style="height:1.2em;width:1.2em;vertical-align:middle;display:inline-block;margin-right:5px;"> Formulário
+            </button>
+            <div style="position: relative;">
+                <button class="top-bar-btn-text" id="roleplay-btn" style="position: relative;">
+                    ROLEPLAY
+                    <span style="
+                        font-size:0.85em;
+                        margin-left:2px;
+                        display:inline-block;
+                        vertical-align: 0.08em;
+                        position: relative;
+                        top: -2px;
+                    ">&#9660;</span>
+                </button>
+                <div id="roleplay-dropdown" style="
+                    display: none;
+                    position: absolute;
+                    top: 44px;
+                    right: 0;
+                    background: #fff;
+                    color: #222;
+                    border-radius: 10px;
+                    box-shadow: 0 2px 12px rgba(0,0,0,0.13);
+                    min-width: 160px;
+                    z-index: 100;
+                    padding: 8px 0;
+                    font-family: 'Quicksand', Arial, sans-serif;
+                ">
+                    <button onclick="window.location.href='porte.html'" style="
+                        width: 100%;
+                        background: none;
+                        border: none;
+                        color: #222;
+                        text-align: left;
+                        padding: 10px 18px;
+                        font-size: 1em;
+                        font-family: 'Quicksand', Arial, sans-serif;
+                        cursor: pointer;
+                        display: flex;
+                        align-items: center;
+                        gap: 8px;
+                        border-radius: 0;
+                        transition: background 0.15s;
+                    " onmouseover="this.style.background='#f3f6fa'" onmouseout="this.style.background='none'">
+                        <img src="papel.png" alt="Porte" style="height:1.2em;width:1.2em;vertical-align:middle;display:inline-block;margin-right:7px;"> Porte
+                    </button>
+                    <button onclick="window.location.href='mural.html'" style="
+                        width: 100%;
+                        background: none;
+                        border: none;
+                        color: #222;
+                        text-align: left;
+                        padding: 10px 18px;
+                        font-size: 1em;
+                        font-family: 'Quicksand', Arial, sans-serif;
+                        cursor: pointer;
+                        display: flex;
+                        align-items: center;
+                        gap: 8px;
+                        border-radius: 0;
+                        transition: background 0.15s;
+                    " onmouseover="this.style.background='#f3f6fa'" onmouseout="this.style.background='none'">
+                        <img src="mural.png" alt="Mural" style="height:1.2em;width:1.2em;vertical-align:middle;display:inline-block;margin-right:7px;"> Mural
+                    </button>
+                </div>
+            </div>
+        </div>
+        <span style="
+            position: absolute;
+            right: 18px;
+            bottom: 2px;
+            font-size: 0.95em;
+            color: #bfc4d1;
+            font-family: 'Quicksand', Arial, sans-serif;
+            z-index: 11;
+            ">V1.3</span>
+    </div>
+    <div class="container" style="margin-top: 30px;">
+        <div class="left-panel">
+            <img src="banner1.png" alt="Banner Complexo RP" class="banner-img">
+            <div class="left-panel-content">
+                <h2>Sobre Complexo RP</h2>
+                <p>
+                    Complexo RP é um servidor único de roleplay no Emergency Hamburg! Aqui você pode explorar diversas profissões e papéis, como policial, cidadão, motorista de ônibus, mecânico, caminhoneiro, bombeiro, médico ou até mesmo criminoso.
+                </p>
+                <strong>Por que escolher o Complexo RP?</strong>
+                <ul>
+                    <li>Muitos eventos especiais e exclusivos</li>
+                    <li>Roleplay exclusivo e de alta qualidade</li>
+                    <li>Comunidade brasileira ativa e acolhedora</li>
+                    <li>Esperando o que? Venha jogar Complexo Rleplay!</li>
+                </ul>
+            </div>
+        </div>
+        <div class="right-panel">
+            <div class="card">
+                <h3>Informações e Suporte</h3>
+                <p>
+                    Se você está interessado em saber mais sobre o Complexo RP, pode visitar nosso canal no YouTube para ver nossos eventos e conteúdos exclusivos. Se precisar de suporte, entre em nosso Discord.
+                </p>
+                <div class="btn-group">
+                    <a href="https://www.youtube.com/@ComplexoRoleplayEH" class="btn" target="_blank">YouTube</a>
+                    <a href="https://discord.gg/csHyHkVSjt" class="btn discord" target="_blank">Discord</a>
+                    <a href="https://x.com/ComplexoRP_EH" class="btn twitter" target="_blank">Twitter</a>
+                </div>
+            </div>
+            <div class="card fundador">
+                <h3>Outros</h3>
+                <div class="fundador-desc">
+                    No Complexo Roleplay, a gerência e a equipe de staff estão comprometidas em proporcionar uma experiência de roleplay realista e divertida para todos os jogadores. Contudo, reconhecemos que o Emergency Hamburg possui limitações, e é importante que todos compreendam essas restrições para manter a qualidade e a harmonia do servidor.
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer style="width:100%;background:#0d1521;margin-top:60px;padding:38px 0 0 0;">
+        <div style="max-width:1100px;margin:0 auto;display:flex;align-items:flex-start;gap:38px;flex-wrap:wrap;">
+            <img src="logo1.png" alt="Complexo Roleplay" style="height:120px;width:auto;display:block;">
+            <div style="flex:1;min-width:220px;color:#f5f6fa;font-size:1.08em;line-height:1.6;">
+                O Complexo Roleplay está prestes a completar 1 ano de história. Somos o servidor de  Roleplay mais antigo do Brasil, Emergency Hamburg, oferecendo uma experiência única e imersiva. Contamos com uma equipe experiente e uma comunidade acolhedora, pronta para receber e orientar quem está começando.
+            </div>
+        </div>
+        <hr style="border:0;border-top:1px solid #222;margin:32px 0 0 0;">
+        <div style="text-align:center;color:#bfc4d1;font-size:1em;padding:18px 0 12px 0;">
+            Copyright ©2025 Todos os direitos reservados | <span style="color:#e53935;">Complexo Roleplay</span>
+        </div>
+    </footer>
+    <script>
+ 
+    const roleplayBtn = document.getElementById('roleplay-btn');
+    const roleplayDropdown = document.getElementById('roleplay-dropdown');
+    document.addEventListener('click', function(e) {
+        if (roleplayBtn && roleplayDropdown) {
+            if (roleplayBtn.contains(e.target)) {
+                roleplayDropdown.style.display = roleplayDropdown.style.display === 'block' ? 'none' : 'block';
+            } else if (!roleplayDropdown.contains(e.target)) {
+                roleplayDropdown.style.display = 'none';
+            }
+        }
+    });
+    </script>
+</body>
+</html>
+</body>
+</html>

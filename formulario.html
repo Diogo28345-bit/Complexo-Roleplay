@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Formulário</title>
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background: #0d1521; /* igual index.html */
+            font-family: 'Quicksand', Arial, sans-serif;
+            color: #f5f6fa;
+        }
+        .top-bar {
+            width: 100%;
+            height: 70px;
+            background: #0d1521;
+            display: flex;
+            align-items: center;
+            box-shadow: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 10;
+            border: none;
+        }
+        .top-bar-logo {
+            height: 60px;
+            width: 60px;
+            margin-left: 8px;
+            margin-right: 32px;
+            object-fit: cover;
+            border-radius: 8px;
+            background: none;
+            border: none;
+        }
+        .top-bar-buttons {
+            display: flex;
+            gap: 18px;
+            align-items: center;
+            margin-left: 0;
+        }
+        .top-bar-btn-text {
+            background: none;
+            color: #f5f6fa;
+            border: none;
+            border-radius: 0;
+            font-family: 'Quicksand', Arial, sans-serif;
+            font-weight: bold;
+            font-size: 1em;
+            padding: 0 8px;
+            cursor: pointer;
+            text-transform: none;
+            letter-spacing: 0.5px;
+            box-shadow: none;
+            transition: color 0.2s;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            height: 38px;
+        }
+        .top-bar-btn-text:hover {
+            color: #1ed760;
+        }
+        .header-bg {
+            background: linear-gradient(90deg, #1a1d22 60%, #23272a 100%);
+            padding: 0 0 32px 0;
+            position: relative;
+        }
+        .header-content {
+            display: flex;
+            align-items: flex-end;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding-top: 32px;
+        }
+        .logo-area {
+            display: flex;
+            align-items: flex-end;
+            gap: 18px;
+        }
+        .logo-img {
+            height: 90px;
+            width: 90px;
+            border-radius: 12px;
+            object-fit: cover;
+            background: #23272a;
+            border: 2px solid #222;
+        }
+        .main-title {
+            font-size: 2.6em;
+            font-family: 'Black Note Regular', 'Quicksand', Arial, sans-serif;
+            font-weight: bold;
+            color: #ffe066;
+            background: #23272a;
+            border-radius: 8px;
+            padding: 8px 32px 8px 24px;
+            margin-bottom: 10px;
+            letter-spacing: 1.5px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.10);
+            border: 2px solid #ffe066;
+            display: inline-block;
+        }
+        .nav-bar {
+            display: flex;
+            align-items: center;
+            gap: 18px;
+            margin-left: auto;
+            margin-bottom: 10px;
+        }
+        .nav-btn {
+            background: none;
+            color: #f5f6fa;
+            border: none;
+            font-family: 'Quicksand', Arial, sans-serif;
+            font-weight: bold;
+            font-size: 1.08em;
+            padding: 7px 18px;
+            cursor: pointer;
+            border-radius: 7px;
+            transition: background 0.18s, color 0.18s;
+            display: flex;
+            align-items: center;
+            gap: 7px;
+        }
+        .nav-btn:hover {
+            background: #23272a;
+            color: #ffe066;
+        }
+        .content-area {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            gap: 32px;
+            margin-top: -30px;
+        }
+        .main-content {
+            background: #151d2b; /* igual ao index.html */
+            border-radius: 14px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.13);
+            padding: 32px 32px 32px 32px;
+            flex: 2;
+            min-width: 340px;
+            margin-bottom: 32px;
+        }
+        .main-content > div {
+            background: none !important;
+            border: none !important;
+            border-radius: 0 !important;
+            box-shadow: none !important;
+            padding: 0 !important;
+            margin: 0 !important;
+            max-width: unset !important;
+        }
+        .main-content .section-title {
+            font-size: 1.5em;
+            font-family: 'Black Note Regular', 'Quicksand', Arial, sans-serif;
+            font-weight: bold;
+            color: #ffe066;
+            margin-bottom: 18px;
+        }
+        .main-content .desc {
+            font-size: 1.13em;
+            color: #f5f6fa;
+            margin-bottom: 18px;
+        }
+        .main-content .cooldown-text {
+            font-size: 1.08em;
+            color: #bfc4d1;
+            background: #181a1b;
+            border-radius: 7px;
+            padding: 14px 18px;
+            margin-top: 18px;
+            margin-bottom: 0;
+            border-left: 4px solid #ffe066;
+        }
+        .side-panel {
+            background: #23272a;
+            border-radius: 14px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.13);
+            padding: 24px 18px 18px 18px;
+            flex: 1;
+            min-width: 260px;
+            margin-bottom: 32px;
+            display: flex;
+            flex-direction: column;
+            gap: 18px;
+        }
+        .side-title {
+            color: #ffe066;
+            font-size: 1.18em;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        .side-info {
+            color: #bfc4d1;
+            font-size: 1em;
+            margin-bottom: 10px;
+        }
+        .side-btn {
+            background: #ffe066;
+            color: #23272a;
+            border: none;
+            border-radius: 7px;
+            font-family: 'Quicksand', Arial, sans-serif;
+            font-weight: bold;
+            font-size: 1.08em;
+            padding: 10px 0;
+            cursor: pointer;
+            transition: background 0.18s, color 0.18s;
+            width: 100%;
+            margin-top: 10px;
+        }
+        .side-btn:disabled {
+            background: #888;
+            color: #23272a;
+            cursor: not-allowed;
+        }
+        @media (max-width: 900px) {
+            .header-content, .content-area {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            .main-title {
+                font-size: 2em;
+                padding: 8px 18px 8px 18px;
+            }
+            .side-panel, .main-content {
+                width: 98vw;
+                min-width: unset;
+                margin-bottom: 24px;
+            }
+        }
+        #roleplay-btn {
+            position: relative;
+        }
+        #roleplay-dropdown {
+            display: none;
+            position: absolute;
+            top: 44px;
+            right: 0;
+            background: #fff;
+            color: #222;
+            border-radius: 10px;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.13);
+            min-width: 160px;
+            z-index: 100;
+            padding: 8px 0;
+            font-family: 'Quicksand', Arial, sans-serif;
+        }
+        #roleplay-dropdown button {
+            width: 100%;
+            background: none;
+            border: none;
+            color: #222;
+            text-align: left;
+            padding: 10px 18px;
+            font-size: 1em;
+            font-family: 'Quicksand', Arial, sans-serif;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            border-radius: 0;
+            transition: background 0.15s;
+        }
+        #roleplay-dropdown button:hover {
+            background: #f3f6fa;
+        }
+    </style>
+</head>
+<body>
+    <div class="top-bar" style="position: relative;">
+        <img src="logo1.png" alt="Logo" class="top-bar-logo">
+        <div class="top-bar-buttons">
+            <button class="top-bar-btn-text" onclick="window.location.href='index.html'">
+                <img src="jogar.png" alt="Página Inicial" style="height:1.2em;width:1.2em;vertical-align:middle;display:inline-block;margin-right:5px;"> PAGINA PRINCIPAL
+            </button>
+            <button class="top-bar-btn-text" onclick="window.open('https://www.roblox.com/games/start?placeId=7711635737&launchData=joinCode%3D43aevris', '_blank')">
+                <img src="jogar.png" alt="Jogo" style="height:1.2em;width:1.2em;vertical-align:middle;display:inline-block;margin-right:5px;"> JOGO
+            </button>
+            <button class="top-bar-btn-text" onclick="window.open('https://docs.google.com/document/d/1EMiPsKzvZKS1XTCrR3rKHmNmi1jgGc8nYrSwEEN-CSM/edit?usp=sharing', '_blank')">
+                <img src="regras.png" alt="Regras" style="height:1.2em;width:1.2em;vertical-align:middle;display:inline-block;margin-right:5px;"> REGRAS
+            </button>
+            <button class="top-bar-btn-text" onclick="window.location.href='outros.html'">
+                <img src="noticias.png" alt="Jornais" style="height:1.2em;width:1.2em;vertical-align:middle;display:inline-block;margin-right:5px;"> JORNAIS
+            </button>
+            <button class="top-bar-btn-text" onclick="window.open('https://discord.gg/fwCSgFD4Rm', '_blank')">
+                <img src="martelo.png" alt="Apelar Banimento" style="height:1.2em;width:1.2em;vertical-align:middle;display:inline-block;margin-right:5px;"> APELAR BANIMENTO
+            </button>
+            <button class="top-bar-btn-text" onclick="window.location.href='formulario.html'">
+                <img src="papel.png" alt="Formulário" style="height:1.2em;width:1.2em;vertical-align:middle;display:inline-block;margin-right:5px;"> Formulário
+            </button>
+            <div style="position: relative;">
+                <button class="top-bar-btn-text" id="roleplay-btn" style="position: relative;">
+                    ROLEPLAY
+                    <span style="
+                        font-size:0.85em;
+                        margin-left:2px;
+                        display:inline-block;
+                        vertical-align: 0.08em;
+                        position: relative;
+                        top: -2px;
+                    ">&#9660;</span>
+                </button>
+                <div id="roleplay-dropdown" style="
+                    display: none;
+                    position: absolute;
+                    top: 44px;
+                    right: 0;
+                    background: #fff;
+                    color: #222;
+                    border-radius: 10px;
+                    box-shadow: 0 2px 12px rgba(0,0,0,0.13);
+                    min-width: 160px;
+                    z-index: 100;
+                    padding: 8px 0;
+                    font-family: 'Quicksand', Arial, sans-serif;
+                ">
+                    <button onclick="window.location.href='porte.html'" style="
+                        width: 100%;
+                        background: none;
+                        border: none;
+                        color: #222;
+                        text-align: left;
+                        padding: 10px 18px;
+                        font-size: 1em;
+                        font-family: 'Quicksand', Arial, sans-serif;
+                        cursor: pointer;
+                        display: flex;
+                        align-items: center;
+                        gap: 8px;
+                        border-radius: 0;
+                        transition: background 0.15s;
+                    " onmouseover="this.style.background='#f3f6fa'" onmouseout="this.style.background='none'">
+                        <img src="papel.png" alt="Porte" style="height:1.2em;width:1.2em;vertical-align:middle;display:inline-block;margin-right:7px;"> Porte
+                    </button>
+                    <button onclick="window.location.href='mural.html'" style="
+                        width: 100%;
+                        background: none;
+                        border: none;
+                        color: #222;
+                        text-align: left;
+                        padding: 10px 18px;
+                        font-size: 1em;
+                        font-family: 'Quicksand', Arial, sans-serif;
+                        cursor: pointer;
+                        display: flex;
+                        align-items: center;
+                        gap: 8px;
+                        border-radius: 0;
+                        transition: background 0.15s;
+                    " onmouseover="this.style.background='#f3f6fa'" onmouseout="this.style.background='none'">
+                        <img src="mural.png" alt="Mural" style="height:1.2em;width:1.2em;vertical-align:middle;display:inline-block;margin-right:7px;"> Mural
+                    </button>
+                </div>
+            </div>
+        </div>
+        <span style="
+            position: absolute;
+            right: 18px;
+            bottom: 2px;
+            font-size: 0.95em;
+            color: #bfc4d1;
+            font-family: 'Quicksand', Arial, sans-serif;
+            z-index: 11;
+            ">V1.3</span>
+    </div>
+    <div class="content-area" style="margin-top:90px;">
+        <div class="main-content">
+            <div style="background:#23272a;border-radius:18px;padding:38px 28px 32px 28px;max-width:650px;margin:40px auto 0 auto;box-shadow:0 2px 12px rgba(0,0,0,0.13);border:2px solid #ffe066;">
+                <div style="display:flex;align-items:center;gap:18px;">
+                    <img src="papel.png" alt="Formulário" style="height:54px;width:54px;background:#ffe066;border-radius:10px;padding:7px;border:2px solid #ffe066;">
+                    <div>
+                        <div style="font-size:2em;font-family:'Black Note Regular','Quicksand',Arial,sans-serif;font-weight:bold;color:#ffe066;letter-spacing:1.5px;">
+                            Formulário de Staff
+                        </div>
+                        <div style="font-size:1.08em;color:#bfc4d1;margin-top:6px;">
+                            Bem vindo(a) a ABA Formulário Staff, aqui você pode ralizar o formulário para adentrar na Equipe Staff do Complexo Roleplay.
+                        </div>
+                    </div>
+                </div>
+                <div style="margin-top:38px;">
+                    <div style="font-size:1.18em;color:#ffe066;font-weight:bold;margin-bottom:8px;">Quando abre?</div>
+                    <div style="margin-bottom:8px;">
+                        <span id="form-timer" style="font-weight:bold; font-size:1.08em;"></span>
+                    </div>
+                    <div style="color:#bfc4d1;font-size:1em;margin-bottom:18px;">
+                        Quando o contador acima chegar a 0, o botão <b>"Realizar Formulário"</b> será liberado e você poderá iniciar sua inscrição. Recomendamos que preencha o formulário com atenção, sem o uso de inteligências artificiais. Dê o seu melhor, esse esforço pode fazer toda a diferença. Boa sorte!
+                    </div>
+                    <button id="form-btn" class="side-btn" style="width:100%;margin-top:10px;" disabled>Realizar Formulário</button>
+                </div>
+                <div style="margin-top:32px;">
+                    <div style="font-size:1.08em;color:#ffe066;font-weight:bold;margin-bottom:7px;">Dica</div>
+                    <div style="color:#bfc4d1;">
+                        Alguns dias antes de realizar o formulário, tire um tempo para revisar as regras, treinar sua escrita e reforçar seu português. Isso será essencial na hora de responder às perguntas. Lembre-se: não há motivo para nervosismo. Responda com calma, atenção e clareza. No Complexo RP, valorizamos a qualidade das respostas e o esforço de cada candidato.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+    // Timer para abertura do formulário (mantém o tempo real mesmo após F5)
+    (function() {
+        const STORAGE_KEY = 'form_open_timestamp_v1';
+        let openTimestamp = localStorage.getItem(STORAGE_KEY);
+
+        if (!openTimestamp) {
+            openTimestamp = Date.now() + 2*24*60*60*1000 + 5*60*60*1000 + 3*60*1000;
+            localStorage.setItem(STORAGE_KEY, openTimestamp);
+        } else {
+            openTimestamp = parseInt(openTimestamp, 10);
+        }
+
+        const openDate = new Date(openTimestamp);
+        const durationMs = 3*24*60*60*1000;
+        const btn = document.getElementById('form-btn');
+        const timerSpan = document.getElementById('form-timer');
+
+        function updateTimer() {
+            const now = new Date();
+            let diff = openDate - now;
+            if (diff > 0) {
+                // Antes de abrir
+                const d = Math.floor(diff/(1000*60*60*24));
+                diff -= d*1000*60*60*24;
+                const h = Math.floor(diff/(1000*60*60));
+                diff -= h*1000*60*60;
+                const m = Math.floor(diff/(1000*60));
+                diff -= m*1000*60;
+                const s = Math.floor(diff/1000);
+                const str = `${d} dias, ${h} horas, ${m} minutos e ${s} segundos`;
+                timerSpan.textContent = str;
+                btn.disabled = true;
+                btn.style.background = "#888";
+                btn.style.color = "#23272a";
+                btn.style.cursor = "not-allowed";
+                btn.onclick = null;
+            } else if (now - openDate < durationMs) {
+                // Formulário aberto
+                timerSpan.textContent = "Formulário disponível!";
+                btn.disabled = false;
+                btn.style.background = "#ffe066";
+                btn.style.color = "#23272a";
+                btn.style.cursor = "pointer";
+                btn.onclick = function() {
+                    window.open('https://docs.google.com/forms/d/1uFP2QR3QJv_8PZrdQS5GfByUAPLct7gDJBMhjaXnj6U/edit?pli=1#responses', '_blank');
+                };
+            } else {
+                // Formulário fechado
+                timerSpan.textContent = "Formulário encerrado";
+                btn.disabled = true;
+                btn.style.background = "#888";
+                btn.style.color = "#23272a";
+                btn.style.cursor = "not-allowed";
+                btn.onclick = null;
+            }
+        }
+        setInterval(updateTimer, 1000);
+        updateTimer();
+    })();
+    // Dropdown Roleplay
+    const roleplayBtn = document.getElementById('roleplay-btn');
+    const roleplayDropdown = document.getElementById('roleplay-dropdown');
+    document.addEventListener('click', function(e) {
+        if (roleplayBtn && roleplayDropdown) {
+            if (roleplayBtn.contains(e.target)) {
+                roleplayDropdown.style.display = roleplayDropdown.style.display === 'block' ? 'none' : 'block';
+            } else if (!roleplayDropdown.contains(e.target)) {
+                roleplayDropdown.style.display = 'none';
+            }
+        }
+    });
+    </script>
+</body>
+</html>

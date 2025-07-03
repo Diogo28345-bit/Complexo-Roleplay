@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Créditos</title>
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@700&display=swap" rel="stylesheet">
+    <style>
+        @font-face {
+            font-family: 'Black Note Regular';
+            src: url('BlackNote-Regular.ttf') format('truetype');
+            font-weight: normal;
+            font-style: normal;
+        }
+        body {
+            margin: 0;
+            padding: 0;
+            background: #0d1521;
+            font-family: 'Quicksand', Arial, sans-serif;
+            color: #f5f6fa;
+        }
+        .top-bar {
+            width: 100%;
+            height: 70px;
+            background: #0d1521; 
+            display: flex;
+            align-items: center;
+            box-shadow: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 10;
+            border: none;
+        }
+        .top-bar-logo {
+            height: 60px;
+            width: 60px;
+            margin-left: 8px;
+            margin-right: 32px;
+            object-fit: cover;
+            border-radius: 8px;
+        }
+        .top-bar-buttons {
+            display: flex;
+            gap: 18px;
+            align-items: center;
+        }
+        .top-bar-btn-text {
+            background: none;
+            color: #f5f6fa;
+            border: none;
+            border-radius: 0;
+            font-family: 'Quicksand', Arial, sans-serif;
+            font-weight: bold;
+            font-size: 1em;
+            padding: 0 8px;
+            cursor: pointer;
+            text-transform: none;
+            letter-spacing: 0.5px;
+            box-shadow: none;
+            transition: color 0.2s;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            height: 38px;
+        }
+        .top-bar-btn-text:hover {
+            color: #1ed760;
+        }
+        .top-bar-btn-text .icon {
+            font-size: 1.1em;
+            display: inline-block;
+            vertical-align: middle;
+        }
+        .banner-azul {
+            width: 96%;
+            margin: 100px auto 0 auto;
+            background: #0071b9;
+            border: 3px solid #111;
+            padding: 18px 0;
+            text-align: center;
+            font-size: 2.3em;
+            color: #fff;
+            font-family: 'Black Note Regular', 'Quicksand', Arial, sans-serif;
+            font-weight: bold;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            box-shadow: none;
+        }
+        .creditos-content {
+            margin-top: 30px;
+            text-align: center;
+            font-family: 'Quicksand', Arial, sans-serif;
+            font-size: 1.3em;
+            color: #222;
+            background: rgba(255,255,255,0.85);
+            display: inline-block;
+            padding: 30px 40px;
+            border-radius: 16px;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+        }
+    </style>
+</head>
+<body>
+    <div class="top-bar">
+        <img src="logo1.png" alt="Logo" class="top-bar-logo">
+        <div class="top-bar-buttons">
+            <button class="top-bar-btn-text" onclick="window.location.href='index.html'">
+                <span class="icon">&#9654;</span> PAGINA PRINCIPAL
+            </button>
+            <button class="top-bar-btn-text" onclick="window.open('https://docs.google.com/document/d/1EMiPsKzvZKS1XTCrR3rKHmNmi1jgGc8nYrSwEEN-CSM/edit?usp=sharing', '_blank')">
+                <span class="icon">&#8505;</span> REGRAS
+            </button>
+            <button class="top-bar-btn-text" onclick="window.location.href='outros.html'">
+                <span class="icon">&#9432;</span> JORNAIS
+            </button>
+            <button class="top-bar-btn-text" onclick="window.open('https://discord.gg/fwCSgFD4Rm', '_blank')">
+                <span class="icon">&#9878;</span> APELAR BANIMENTO
+            </button>
+        </div>
+    </div>
+    <div class="banner-azul">CRÉDITOS</div>
+    <div style="text-align:center;">
+        <div class="creditos-content">
+            Diogo_28345 - Programador do Site<br>
+            Kommandant - Editor das fotos
+        </div>
+    </div>
+</body>
+</html>

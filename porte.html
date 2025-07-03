@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>PORTE</title>
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@700&display=swap" rel="stylesheet">
+    <style>
+        @font-face {
+            font-family: 'Black Note Regular';
+            src: url('BlackNote-Regular.ttf') format('truetype');
+            font-weight: normal;
+            font-style: normal;
+        }
+        body {
+            margin: 0;
+            padding: 0;
+            background: #0d1521;
+            font-family: 'Quicksand', Arial, sans-serif;
+            color: #f5f6fa;
+        }
+        .top-bar {
+            width: 100%;
+            height: 70px;
+            background: #0d1521;
+            display: flex;
+            align-items: center;
+            box-shadow: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 10;
+            border: none;
+        }
+        .top-bar-logo {
+            height: 60px;
+            width: 60px;
+            margin-left: 8px;
+            margin-right: 32px;
+            object-fit: cover;
+            border-radius: 8px;
+        }
+        .top-bar-buttons {
+            display: flex;
+            gap: 18px;
+            align-items: center;
+        }
+        .top-bar-btn-text {
+            background: none;
+            color: #f5f6fa;
+            border: none;
+            border-radius: 0;
+            font-family: 'Quicksand', Arial, sans-serif;
+            font-weight: bold;
+            font-size: 1em;
+            padding: 0 8px;
+            cursor: pointer;
+            text-transform: none;
+            letter-spacing: 0.5px;
+            box-shadow: none;
+            transition: color 0.2s;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            height: 38px;
+        }
+        .top-bar-btn-text:hover {
+            color: #1ed760;
+        }
+        .top-bar-btn-text .icon {
+            font-size: 1.1em;
+            display: inline-block;
+            vertical-align: middle;
+        }
+        .banner-azul {
+            width: 90vw;
+            max-width: 900px;
+            margin: 100px auto 0 auto;
+            background: #0071b9;
+            border: 1px solid #111;
+            border-radius: 18px;
+            padding: 18px 0;
+            text-align: center;
+            font-size: 2.3em;
+            color: #fff;
+            font-family: 'Black Note Regular', 'Quicksand', Arial, sans-serif;
+            font-weight: bold;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            box-shadow: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .search-bar {
+            width: 100%;
+            margin: 28px 0 0 0;
+            display: flex;
+            justify-content: center;
+        }
+        .search-bar form {
+            width: 100%;
+            max-width: 400px;
+            display: flex;
+            justify-content: center;
+        }
+        .search-bar input {
+            width: 100%;
+            background: #fff;
+            color: #222;
+            border: 1.5px solid #333;
+            border-radius: 8px;
+            padding: 10px 40px 10px 14px;
+            font-size: 1.1em;
+            font-family: 'Quicksand', Arial, sans-serif;
+            outline: none;
+            box-sizing: border-box;
+            transition: border 0.2s;
+        }
+        .search-bar input::placeholder {
+            color: #888;
+        }
+        .search-bar input:focus {
+            border-color: #1ed760;
+        }
+        .search-bar .icon {
+            position: absolute;
+            right: 12px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #888;
+            font-size: 1.2em;
+            pointer-events: none;
+        }
+        .cards-row {
+            width: 90vw;
+            max-width: 1200px;
+            margin: 38px auto 0 auto;
+            display: flex;
+            gap: 32px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        .porte-card {
+            background: #fff;
+            border-radius: 14px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.10);
+            border: 1.5px solid #222c3a;
+            width: 340px;
+            display: flex;
+            flex-direction: column;
+            align-items: stretch;
+            padding-bottom: 18px;
+            transition: box-shadow 0.2s;
+        }
+        .porte-card:hover {
+            box-shadow: 0 4px 16px rgba(0,0,0,0.13);
+        }
+        .porte-card-img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+            border-top-left-radius: 14px;
+            border-top-right-radius: 14px;
+        }
+        .porte-card-title {
+            font-family: 'Black Note Regular', 'Quicksand', Arial, sans-serif;
+            font-size: 1.3em;
+            font-weight: bold;
+            margin: 18px 0 6px 0;
+            color: #222;
+            text-align: left;
+            padding-left: 18px;
+        }
+        .porte-card-id {
+            font-family: Arial, sans-serif;
+            font-size: 1em;
+            color: #666;
+            margin-bottom: 18px;
+            text-align: left;
+            padding-left: 18px;
+        }
+        .porte-card-btn {
+            display: block;
+            margin: 0 auto 0 auto;
+            background: #fff;
+            color: #222;
+            border: 1.5px solid #222;
+            border-radius: 7px;
+            font-family: 'Quicksand', Arial, sans-serif;
+            font-weight: bold;
+            font-size: 1em;
+            padding: 10px 28px;
+            cursor: pointer;
+            transition: background 0.2s, color 0.2s;
+        }
+        .porte-card-btn:hover {
+            background: #222;
+            color: #fff;
+        }
+        .roleplay-dropdown {
+            display: none;
+            position: absolute;
+            top: 44px;
+            right: 0;
+            background: #fff;
+            color: #222;
+            border-radius: 10px;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.13);
+            min-width: 180px;
+            z-index: 100;
+            padding: 8px 0;
+            font-family: 'Quicksand', Arial, sans-serif;
+            border: 1px solid #e0e0e0;
+        }
+        .roleplay-dropdown .dropdown-item {
+            width: 100%;
+            background: none;
+            border: none;
+            color: #222;
+            text-align: left;
+            padding: 10px 18px;
+            font-size: 1em;
+            font-family: 'Quicksand', Arial, sans-serif;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            border-radius: 0;
+            transition: background 0.15s;
+        }
+        .roleplay-dropdown .dropdown-item:hover {
+            background: #f3f6fa;
+        }
+        .roleplay-dropdown .dropdown-divider {
+            height: 1px;
+            background: #e0e0e0;
+            margin: 4px 0;
+            border: none;
+        }
+        @media (max-width: 1100px) {
+            .cards-row {
+                gap: 18px;
+            }
+            .porte-card {
+                width: 98vw;
+                max-width: 340px;
+            }
+        }
+    </style>
+    <script>
+        
+        const cards = [
+            { nome: "Gustavo", id: 2, img: "gustavo1.png" }, 
+            { nome: "Luciano", id: 128, img: "luciano.png" },
+            { nome: "Em Breve", id: 0, img: "imagem2.png" },
+            { nome: "Em Breve", id: 0, img: "imagem2.png" },
+            { nome: "Em Breve", id: 0, img: "imagem2.png" },
+            { nome: "Em Breve", id: 0, img: "imagem2.png" }
+        ];
+
+        function renderCards(filterId = "") {
+            const row = document.getElementById('cards-row');
+            row.innerHTML = "";
+            let filtered = cards;
+            if (filterId !== "") {
+                filtered = cards.filter(card => String(card.id) === filterId);
+            }
+            if (filtered.length === 0 && filterId !== "") return;
+            filtered.forEach(card => {
+                row.innerHTML += `
+                <div class="porte-card">
+                    <img src="${card.img}" alt="Foto" class="porte-card-img">
+                    <div class="porte-card-title">${card.nome}</div>
+                    <div class="porte-card-id">ID: ${card.id}</div>
+                    <button class="porte-card-btn" onclick="${
+                        card.id === 128
+                            ? "window.location.href='porte_luciano.html'"
+                            : ""
+                    }">Ver Porte</button>
+                </div>
+                `;
+            });
+        }
+
+        window.addEventListener('DOMContentLoaded', function() {
+            const input = document.getElementById('search-id');
+            renderCards();
+            input.addEventListener('input', function() {
+                const val = input.value.trim();
+                if (val === "") {
+                    renderCards();
+                } else {
+                    renderCards(val);
+                }
+            });
+        });
+    </script>
+</head>
+<body>
+    <div class="top-bar" style="position: relative;">
+        <img src="logo1.png" alt="Logo" class="top-bar-logo">
+        <div class="top-bar-buttons">
+            <button class="top-bar-btn-text" onclick="window.location.href='index.html'">
+                <span class="icon">&#9654;</span> PAGINA PRINCIPAL
+            </button>
+            <button class="top-bar-btn-text" onclick="window.open('https://docs.google.com/document/d/1EMiPsKzvZKS1XTCrR3rKHmNmi1jgGc8nYrSwEEN-CSM/edit?usp=sharing', '_blank')">
+                <img src="regras.png" alt="Regras" style="height:1.2em;width:1.2em;vertical-align:middle;display:inline-block;margin-right:5px;"> REGRAS
+            </button>
+            <button class="top-bar-btn-text" onclick="window.location.href='outros.html'">
+                <img src="noticias.png" alt="Jornais" style="height:1.2em;width:1.2em;vertical-align:middle;display:inline-block;margin-right:5px;"> JORNAIS
+            </button>
+            <button class="top-bar-btn-text" onclick="window.open('https://discord.gg/fwCSgFD4Rm', '_blank')">
+                <img src="martelo.png" alt="Apelar Banimento" style="height:1.2em;width:1.2em;vertical-align:middle;display:inline-block;margin-right:5px;"> APELAR BANIMENTO
+            </button>
+            <div style="position: relative;">
+                <button class="top-bar-btn-text" id="roleplay-btn" style="position: relative;">
+                    ROLEPLAY
+                    <span style="
+                        font-size:0.85em;
+                        margin-left:2px;
+                        display:inline-block;
+                        vertical-align: 0.08em;
+                        position: relative;
+                        top: -2px;
+                    ">&#9660;</span>
+                </button>
+                <div id="roleplay-dropdown" style="
+                    display: none;
+                    position: absolute;
+                    top: 44px;
+                    right: 0;
+                    background: #fff;
+                    color: #222;
+                    border-radius: 10px;
+                    box-shadow: 0 2px 12px rgba(0,0,0,0.13);
+                    min-width: 160px;
+                    z-index: 100;
+                    padding: 8px 0;
+                    font-family: 'Quicksand', Arial, sans-serif;
+                ">
+                    <button onclick="window.location.href='porte.html'" style="
+                        width: 100%;
+                        background: none;
+                        border: none;
+                        color: #222;
+                        text-align: left;
+                        padding: 10px 18px;
+                        font-size: 1em;
+                        font-family: 'Quicksand', Arial, sans-serif;
+                        cursor: pointer;
+                        display: flex;
+                        align-items: center;
+                        gap: 8px;
+                        border-radius: 0;
+                        transition: background 0.15s;
+                    " onmouseover="this.style.background='#f3f6fa'" onmouseout="this.style.background='none'">
+                        <img src="papel.png" alt="Porte" style="height:1.2em;width:1.2em;vertical-align:middle;display:inline-block;margin-right:7px;"> Porte
+                    </button>
+                    <button onclick="window.location.href='mural.html'" style="
+                        width: 100%;
+                        background: none;
+                        border: none;
+                        color: #222;
+                        text-align: left;
+                        padding: 10px 18px;
+                        font-size: 1em;
+                        font-family: 'Quicksand', Arial, sans-serif;
+                        cursor: pointer;
+                        display: flex;
+                        align-items: center;
+                        gap: 8px;
+                        border-radius: 0;
+                        transition: background 0.15s;
+                    " onmouseover="this.style.background='#f3f6fa'" onmouseout="this.style.background='none'">
+                        <img src="mural.png" alt="Mural" style="height:1.2em;width:1.2em;vertical-align:middle;display:inline-block;margin-right:7px;"> Mural
+                    </button>
+                </div>
+            </div>
+        </div>
+        <span style="position: absolute; right: 18px; bottom: 2px; font-size: 0.95em; color: #bfc4d1; font-family: 'Quicksand', Arial, sans-serif; z-index: 11;">V1.3</span>
+    </div>
+    <div class="banner-azul">PORTE</div>
+    <div class="search-bar">
+        <form style="width:100%;" autocomplete="off" onsubmit="return false;">
+            <div style="position: relative; width: 100%; max-width: 400px;">
+                <input
+                    id="search-id"
+                    type="text"
+                    inputmode="numeric"
+                    pattern="[0-9]*"
+                    maxlength="20"
+                    placeholder="Coloque o ID do usuário"
+                    oninput="this.value=this.value.replace(/[^0-9]/g,'')"
+                />
+                <span class="icon">&#128269;</span>
+            </div>
+        </form>
+    </div>
+    <div class="cards-row" id="cards-row">
+        
+    </div>
+    <script>
+
+        (function() {
+            const roleplayBtn = document.getElementById('roleplay-btn');
+            const roleplayDropdown = document.getElementById('roleplay-dropdown');
+            if (roleplayBtn && roleplayDropdown) {
+                function closeDropdowns() {
+                    document.querySelectorAll('.roleplay-dropdown').forEach(el => {
+                        el.style.display = 'none';
+                    });
+                }
+                roleplayBtn.addEventListener('click', function(e) {
+                    e.stopPropagation();
+                    if (roleplayDropdown.style.display === 'block') {
+                        roleplayDropdown.style.display = 'none';
+                    } else {
+                        closeDropdowns();
+                        roleplayDropdown.style.display = 'block';
+                    }
+                });
+                document.addEventListener('click', function(e) {
+                    if (!roleplayBtn.contains(e.target) && !roleplayDropdown.contains(e.target)) {
+                        roleplayDropdown.style.display = 'none';
+                    }
+                });
+            }
+        })();
+    </script>
+</body>
